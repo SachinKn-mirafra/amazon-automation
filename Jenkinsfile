@@ -9,12 +9,13 @@ pipeline {
     }
     stages {
         stage('build') {
-            when {
-                expression {
-                    env.BRANCH_NAME == "master" || env.BRANCH_NAME == "main"
-                }
-            }
+            // when {
+            //     expression {
+            //         env.BRANCH_NAME == "master" || env.BRANCH_NAME == "main"
+            //     }
+            // }
             steps {
+                echo env.BRANCH_NAME
                 echo 'Building project'
                 bat 'echo Name: %Name%'
                 bat 'npm install'

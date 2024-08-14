@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    environment {
+        Name = 'Sachi'
+    }
     parameters {
-        string(name: 'Name', defaultValue: 'Sachin')
+        string(name: 'Name', defaultValue: "${Name}")
         choice(name: 'Browser', choices: ['chromium', 'firefox', 'webkit', 'MicrosoftEdge', 'GoogleChrome'])
         choice(name: 'Scripts', choices: ['ID-01', 'ID-02', 'ID-03', '@regression', '@sanity'])
         booleanParam(name: 'Headed', defaultValue: true)

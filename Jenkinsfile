@@ -9,6 +9,7 @@ pipeline {
     }
     stages {
         stage('build') {
+            // This will work only for Multi Branch Pipeline
             // when {
             //     expression {
             //         env.BRANCH_NAME == "master" || env.BRANCH_NAME == "main"
@@ -22,6 +23,12 @@ pipeline {
             }
         }
         stage('tests') {
+            // This will work only for Multi Branch Pipeline
+            // when {
+            //     expression {
+            //         env.BRANCH_NAME == "master" || env.BRANCH_NAME == "main"
+            //     }
+            // }
             steps {
                 echo 'Running tests'
                 script {

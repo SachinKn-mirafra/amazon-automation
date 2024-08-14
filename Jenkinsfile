@@ -4,7 +4,7 @@ pipeline {
         Name = 'Sachi'
     }
     parameters {
-        string(name: 'Name', defaultValue: "${Name}")
+        string(name: 'Name', defaultValue: "Sachin")
         choice(name: 'Browser', choices: ['chromium', 'firefox', 'webkit', 'MicrosoftEdge', 'GoogleChrome'])
         choice(name: 'Scripts', choices: ['ID-01', 'ID-02', 'ID-03', '@regression', '@sanity'])
         booleanParam(name: 'Headed', defaultValue: true)
@@ -19,8 +19,8 @@ pipeline {
             //     }
             // }
             steps {
-                echo env.BRANCH_NAME
-                echo Name
+                echo "env.BRANCH_NAME: ${env.BRANCH_NAME}"
+                echo "Name: ${Name}"
                 echo 'Building project'
                 bat 'echo Name: %Name%'
                 bat 'npm install'

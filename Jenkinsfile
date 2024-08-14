@@ -12,6 +12,13 @@ pipeline {
         booleanParam(name: 'Debug', defaultValue: false)
     }
     stages {
+        stage('Check') {
+            steps {
+                echo "env.BRANCH_NAME: ${env.BRANCH_NAME}"
+                echo "Name: ${Name}"
+                echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
+            }
+        }
         stage('build') {
             // This will work only for Multi Branch Pipeline
             // when {
@@ -20,9 +27,6 @@ pipeline {
             //     }
             // }
             steps {
-                echo "env.BRANCH_NAME: ${env.BRANCH_NAME}"
-                echo "Name: ${Name}"
-                echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
                 echo 'Building project'
                 bat 'echo Name: %Name%'
                 bat 'npm install'

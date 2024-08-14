@@ -22,6 +22,11 @@ pipeline {
                 //     sh "USER: ${USER}"
                 //     sh "PWD: ${PWD}"
                 // }
+
+                script {
+                    gv = load 'sample.groovy'
+                    gv.test();
+                }
             }
         }
         stage('build') {

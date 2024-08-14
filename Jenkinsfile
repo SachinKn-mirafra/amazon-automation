@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         Name = 'Sachi'
+        SERVER_CREDENTIALS = credentials('server-cred')
     }
     parameters {
         string(name: 'Name', defaultValue: "Sachin")
@@ -21,6 +22,7 @@ pipeline {
             steps {
                 echo "env.BRANCH_NAME: ${env.BRANCH_NAME}"
                 echo "Name: ${Name}"
+                echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
                 echo 'Building project'
                 bat 'echo Name: %Name%'
                 bat 'npm install'

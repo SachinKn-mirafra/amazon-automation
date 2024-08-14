@@ -1,3 +1,5 @@
+CODE_CHANGES = getGitChanges();
+
 pipeline {
     agent any
     parameters {
@@ -9,6 +11,11 @@ pipeline {
     }
     stages {
         stage('build') {
+            when {
+                expression {
+                    (BRANCH_NAME == "master" || BRANCH_NAME == "main") && CODE_CHANGES
+                }
+            }
             steps {
                 echo 'Building project'
                 bat 'echo Name: %Name%'

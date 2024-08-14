@@ -20,6 +20,7 @@ pipeline {
             // }
             steps {
                 echo env.BRANCH_NAME
+                echo Name
                 echo 'Building project'
                 bat 'echo Name: %Name%'
                 bat 'npm install'

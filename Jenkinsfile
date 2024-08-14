@@ -19,8 +19,8 @@ pipeline {
                 echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
 
                 withCredentials([usernamePassword(credentials: 'server-cred', usernameVariable: USER, passwordVariable: PWD)]) {
-                    bat " echo USER: ${USER}"
-                    bat " echo USER: ${PWD}"
+                    bat " echo USER: %USER%"
+                    bat " echo USER: %PWD%"
                 }
             }
         }

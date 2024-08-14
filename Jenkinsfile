@@ -18,10 +18,10 @@ pipeline {
                 echo "Name: ${Name}"
                 echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
 
-                withCredentials([usernamePassword(credentials: 'server-cred', usernameVariable: USER, passwordVariable: PWD)]) {
-                    sh "USER: ${USER}"
-                    sh "PWD: ${PWD}"
-                }
+                // withCredentials([usernamePassword(credentials: 'server-cred', usernameVariable: USER, passwordVariable: PWD)]) {
+                //     sh "USER: ${USER}"
+                //     sh "PWD: ${PWD}"
+                // }
             }
         }
         stage('build') {

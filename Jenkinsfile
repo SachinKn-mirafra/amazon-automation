@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         Name = 'Sachi'
-        SERVER_CREDENTIALS = credentials('server-cred')
+        SERVER_CREDENTIALS = credentials('server-cred') // Plugin needed: Credential Binding
     }
     parameters {
         string(name: 'Name', defaultValue: "Sachin")
@@ -17,6 +17,11 @@ pipeline {
                 echo "env.BRANCH_NAME: ${env.BRANCH_NAME}"
                 echo "Name: ${Name}"
                 echo "SERVER_CREDENTIALS: ${SERVER_CREDENTIALS}"
+
+                withCredentials([usernamePassword(credentials: 'server-cred', usernameVariable: USER, passwordVariable: PWD)]) {
+                    bat " echo USER: ${USER}"
+                    bat " echo USER: ${PWD}"
+                }
             }
         }
         stage('build') {

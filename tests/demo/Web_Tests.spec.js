@@ -9,7 +9,7 @@ test('Login Test @ID-001 @reg', async ({page}) => {
 
     await expect(page).toHaveURL('https://rahulshettyacademy.com/client/dashboard/dash');
 
-    await page.pause();
+    // await page.pause();
 });
 
 test('Login Test @ID-002 @sanity', async ({page}) => {
@@ -25,12 +25,12 @@ test('Login Test @ID-002 @sanity', async ({page}) => {
     await context.storageState({path: 'state.json'});
 });
 
-test('Get Login details @ID-003 @reg @sanity', async ({page}) => {
+test('Get Login details @ID-003 @reg @sanity', async ({browser}) => {
 
-    const context = await browser.newContext({storageState: './sachin-tests/03.API_and_WEB/state.json'});
+    const context = await browser.newContext({storageState: 'state.json'});
     const page = await context.newPage();
 
     await page.goto('https://rahulshettyacademy.com/client');
 
-    await page.pause();
+    // await page.pause();
 });

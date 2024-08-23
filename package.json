@@ -2,7 +2,10 @@
   "name": "mock",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "WebTests": "npx playwright test demo/Web_Tests --project=chromium --headed",
+    "ApiTests": "npx playwright test demo/API_Tests --project=chromium --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

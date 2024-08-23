@@ -66,7 +66,7 @@ test('Update User @ID-006', async ({request}) => {
 
 });
 
-test('Delete User', async ({request}) => {
+test('Delete User @ID-007', async ({request}) => {
     const response = await request.delete(baseURL + '/api/users/' + userId);
     expect(response.status()).toBe(204);
 });
